@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张栋飞舞</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
+    overflow: hidden;
+    font-family: "Nunito", "Comic Sans MS", cursive;
+    color: #e0e6ff;
+    text-align: center;
+  }
+
+  /* 星空动画背景 */
+  .stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/img/stars.png') repeat top center;
+    animation: moveStars 100s linear infinite;
+  }
+
+  @keyframes moveStars {
+    from { background-position: 0 0; }
+    to { background-position: 0 -2000px; }
+  }
+
+  h1 {
+    position: relative;
+    margin-top: 60px;
+    font-size: 2.3em;
+    color: #b3c7ff;
+    text-shadow: 0 0 15px #6fa3ef, 0 0 30px #8fa8ff;
+  }
+
+  img {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 3px solid #c4d2ff;
+    box-shadow: 0 0 20px #8ea6ff, 0 0 40px #6fa3ef;
+    margin-top: 30px;
+    object-fit: cover;
+  }
+
+  p {
+    position: relative;
+    margin-top: 25px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 25px;
+    border-radius: 20px;
+    font-size: 1.3em;
+    backdrop-filter: blur(6px);
+    color: #e2e8ff;
+    box-shadow: 0 0 10px rgba(170, 200, 255, 0.3);
+  }
+
+  .twinkle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out alternate;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.8); }
+  }
+</style>
+</head>
+<body>
+  <div class="stars"></div>
+
+  <h1>叫bb给你做一个</h1>
+
+  <img src="IMG_20250327_222328.jpg" alt="头像">
+
+  <p>张栋nb不 ✨</p>
+
+  <script>
+    // 动态生成闪烁的小星星
+    for (let i = 0; i < 50; i++) {
+      const star = document.createElement('div');
+      star.className = 'twinkle';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDelay = (Math.random() * 3) + 's';
+      document.body.appendChild(star);
+    }
+  </script>
+</body>
+</html>
